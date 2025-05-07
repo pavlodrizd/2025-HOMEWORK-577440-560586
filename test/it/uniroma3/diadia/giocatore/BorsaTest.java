@@ -16,9 +16,9 @@ public class BorsaTest {
 	@Before
 	public void setUp() throws Exception {
 		b = new Borsa();
-		a = new Attrezzo("A", 1);
-		l = new Attrezzo("L", 5);
-		tp = new Attrezzo ("TP", 50);
+		a = new Attrezzo("a", 1);
+		l = new Attrezzo("l", 5);
+		tp = new Attrezzo ("tp", 50);
 	}
 
 	@Test
@@ -36,6 +36,14 @@ public class BorsaTest {
 		b.addAttrezzo(a);
 		b.addAttrezzo(l);
 		assertEquals(6, b.getPeso());
+	}
+	
+	@Test
+	public void removeAttrezzo() {
+		b.addAttrezzo(a);
+		
+		assertEquals(null, b.removeAttrezzo("F"));
+		assertEquals(a, b.removeAttrezzo("a"));
 	}
 
 }

@@ -1,5 +1,7 @@
 package it.uniroma3.diadia.giocatore;
 
+import java.util.NoSuchElementException;
+
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Borsa {
@@ -57,21 +59,27 @@ public class Borsa {
 		return this.getAttrezzo(nomeAttrezzo) != null;
 	}
 
-	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
- 		Attrezzo a = null;
- 		int i=0;
- 		while(i<this.numeroAttrezzi && a==null) {
- 			if(this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
- 				a = this.attrezzi[i];
- 				this.attrezzi[i]=null; 
- 				this.attrezzi[i] = this.attrezzi[i+1];
- 				this.numeroAttrezzi--;
- 			}
- 			i++;
- 		}
- 
- 		return a; 
- 	}
+	public Attrezzo removeAttrezzo(String nomeAttrezzo) throws NoSuchElementException {
+		int indice = 0;
+		for (Attrezzo att : attrezzi) {
+			if (att!=null && att.getNome().equals(nomeAttrezzo)) {
+
+				this.attrezzi[indice] = null;
+
+				for (int i = indice; i < numeroAttrezzi; i++) {
+					this.attrezzi[i] = this.attrezzi[i + 1];
+				}
+
+				this.attrezzi[numeroAttrezzi - 1] = null;
+
+				numeroAttrezzi--;
+				return att;
+			} else {
+				indice++;
+			}
+		}
+		return null;
+	}
 
 	public String toString() {
 		StringBuilder s = new StringBuilder();

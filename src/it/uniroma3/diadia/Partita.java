@@ -12,7 +12,7 @@ import it.uniroma3.diadia.giocatore.Giocatore;
  * @version base
  */
 
-public class Partita {
+public class Partita{
 	
 	private Giocatore giocatore;
 	private Labirinto labirinto;
