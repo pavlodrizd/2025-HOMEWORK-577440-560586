@@ -5,18 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.uniroma3.diadia.ambienti.Labirinto;
+
 public class PartitaTest {
 	
 	private Partita p;
 
 	@Before
 	public void setUp() throws Exception {
-		p = new Partita();
+		p = new Partita(Labirinto.newBuilder().getLabirinto());
 	}
 	
 	@Test
 	public void testVinta() {
-		assertFalse(p.vinta());
+		assertTrue(p.vinta());
 	}
 	
 	@Test

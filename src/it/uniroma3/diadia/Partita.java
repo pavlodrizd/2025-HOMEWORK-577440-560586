@@ -12,16 +12,16 @@ import it.uniroma3.diadia.giocatore.Giocatore;
  * @version base
  */
 
-public class Partita {
+public class Partita{
 	
 	private Giocatore giocatore;
 	private Labirinto labirinto;
 	private boolean finita;
-	
-	public Partita(){
-		this.finita = false;
-		this.giocatore = new Giocatore();
-		this.labirinto = new Labirinto();
+
+	public Partita(Labirinto labirinto){
+	    this.finita = false;
+	    this.giocatore = new Giocatore();
+	    this.labirinto = labirinto;
 	}
 	
 	public Giocatore getGiocatore() {
@@ -54,6 +54,11 @@ public class Partita {
 	 */
 	public void setFinita() {
 		this.finita = true;
-	}		
+	}	
+	
+	public void setLabirinto(Labirinto labirinto) {
+	    this.labirinto = labirinto;
+	}
+
 	
 }

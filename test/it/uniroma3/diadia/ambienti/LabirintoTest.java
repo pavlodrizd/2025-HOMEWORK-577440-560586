@@ -2,29 +2,28 @@ package it.uniroma3.diadia.ambienti;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Before;
 import org.junit.Test;
-
-import it.uniroma3.diadia.ambienti.Labirinto;
-import it.uniroma3.diadia.ambienti.Stanza;
 
 public class LabirintoTest {
 	
 	private Labirinto l;
-	private Stanza s1, s2, biblioteca;
+	private Stanza s2;
 
 	@Before
 	public void setUp() throws Exception {
-		l = new Labirinto();
-		s1 = new Stanza("S1");
-		s2 = new Stanza("S2");
-		biblioteca = new Stanza("Biblioteca");
-		l.setStanzaCorrente(s1);
+		l = Labirinto.newBuilder()
+				.addStanzaIniziale("S1")
+				.addStanzaVincente("Biblioteca")
+				.addStanza("S2")
+				.getLabirinto();
 	}
+	
 	
 	@Test
 	public void testGetStanzaCorrente() {
-		assertEquals(s1, l.getStanzaCorrente());
+		assertEquals((new Stanza("S1").getNome()), l.getStanzaCorrente().getNome());
 	}
 
 	@Test

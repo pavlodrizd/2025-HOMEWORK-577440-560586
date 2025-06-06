@@ -1,0 +1,11 @@
+Stanze:atrio, biblioteca, n10, n11, laboratorio, aula
+Magica:biblioteca, laboratorio
+Buia:n10 lanterna
+Bloccata:n11 ovest chiave
+Inizio:atrio
+Vincente:aula
+Mago:n10 Mago "Muove-la-bacchetta-magica" bacchetta
+Cane:n11 Cane "BAU"
+Strega:biblioteca Strega "HIHIHIHI"
+Attrezzi:martello 10 biblioteca, lanterna 4 atrio, chiave 1 laboratorio, pozione 2 n10
+Uscite:atrio nord biblioteca, atrio est n10, biblioteca sud atrio, biblioteca ovest laboratorio, laboratorio est biblioteca, n10 ovest atrio, n10 sud n11, n11 nord n10, n11 ovest aula, aula est n11
